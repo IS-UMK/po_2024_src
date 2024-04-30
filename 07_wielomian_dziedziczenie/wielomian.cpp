@@ -1,8 +1,4 @@
 #include "wielomian.h"
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
 
 Wielomian::Wielomian(int st)
 {
