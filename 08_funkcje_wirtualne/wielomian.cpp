@@ -4,32 +4,26 @@
 
 using namespace std;
 
-Wielomian::Wielomian() 
+Wielomian::Wielomian():Wielomian(0)
 {
-	st =0;
-	wsp = new double[st+1];
 	*wsp=0;
 }
 
-Wielomian::Wielomian(double *w, int st) 
+Wielomian::Wielomian(double *w, int st):Wielomian(st)
 {
-	this->st =st;
-	wsp = new double[st+1];
 	for(int i=0; i<=st; i++)
 		*(wsp+i)=*(w+i);
 }
 
 Wielomian::Wielomian(int st)
 {
-   if(st<0) st = 0;
-   this->st=st;
-	wsp=new double[st+1];
+    if(st<0) st = 0;
+    this->st=st;
+    wsp=new double[st+1];
 }
 
-Wielomian::Wielomian(const Wielomian & w) 
+Wielomian::Wielomian(const Wielomian & w):Wielomian(w.st)
 {
-	this->st=w.st;
-	wsp=new double[st+1];
 	for(int i=0; i<=st; i++) wsp[i]=w.wsp[i];
 }
 
@@ -37,7 +31,6 @@ Wielomian Wielomian::Pochodna(int st) const
 {
    if(st==1)
    {
-
       Wielomian w;
       if(this->st>0)
       {

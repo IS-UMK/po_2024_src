@@ -5,7 +5,9 @@
 
 class Parabola : public Wielomian
 {
+private:
 	double delta;
+
 public:
 	Parabola(double a=0.0,double b=0.0,double c=0.0);
     Parabola(const Parabola &p);
