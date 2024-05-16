@@ -130,7 +130,7 @@
     <ClInclude Include="wektor.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="prograqm.cpp" />
+    <ClCompile Include="program.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

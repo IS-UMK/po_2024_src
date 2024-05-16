@@ -7,6 +7,11 @@ using namespace std;
 
 const int domyslny_rozmiar = 20;
 
+
+// deklaracja wyprzedzajaca na potrzeby szablonu zaprzyjaznionego operatora <<
+template <typename T> class Wektor;
+template <typename T>ostream& operator<<(ostream& o, const Wektor<T> &w);
+
 template <typename T>
 class Wektor
 {
@@ -33,8 +38,8 @@ public:
 	
 	Wektor<T>& operator=(const Wektor<T>& t);
 
-	template <typename U>
-	friend ostream& operator<<(ostream& o, const Wektor<U>& w);
+	// pusty <> konieczny aby powiadomic kompilator, ze to funkcja szablonowa
+	friend ostream& operator<< <> (ostream& o, const Wektor<T>& w);
 };
 
 template <typename T>
