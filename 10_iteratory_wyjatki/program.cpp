@@ -1,15 +1,14 @@
 #include "wektor.h"
 #include "wyjatki.h"
 #include <iostream>
-#include <cstdlib>
 #include <algorithm>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
 int main()
 {
-
-	
 	Wektor<int> liczby;
 	cout << "Tworze pusty wektor" << endl;
 
@@ -62,7 +61,6 @@ int main()
 		cout << "Zlapalem wyjatek typu: ZlyIndeksWektora" << endl;
 		cout << w.Komunikat();
 	}
-
 
 	try
 	{
