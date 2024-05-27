@@ -1,5 +1,4 @@
 #include "wyraz.h"
-#include <cstdlib>
 #include <algorithm>
 #include <map>
 #include <sstream>
@@ -7,8 +6,6 @@
 #include <fstream>
 #include <string>
 
-
-#define MAX 500
 using namespace std;
 
 /* Program tworzy slownik wyrazow pojawiajacych sie w tekscie pliku tekstowego. */
@@ -48,7 +45,11 @@ int main()
 
 	// Tworzymy slownik wyrazow z pliku
 	map<Wyraz,int> slownik;
-	while(plik >> w) slownik[w]++;
+	while (plik >> w)
+	{
+		slownik[w]++;
+		cout << w << endl;
+	}
 
 	//Wyswietlamy slownik
 	map<Wyraz,int>::iterator it;
@@ -73,8 +74,8 @@ int main()
 
 */
 
-	//  wypisz 3 najczęściej występujące wrazy. 
-	// Wykorzystaj w tym celu algorytm sort oraz funkcję porównującą dwa elementy słownika ze względu na liczbę wystąpień
+	//  wypisz 3 najczesciej wystepujace wyrazy.
+	// Wykorzystaj w tym celu algorytm sort oraz funkcje porownujaca dwa elementy slownika ze wzgledu na liczbe wystapien
     
 	cout << "\nSortowanie wzgledem liczby wystapien" << endl;
 
@@ -87,23 +88,20 @@ int main()
 		cout << x.second << " : " << x.first << endl;
 	}
 
-
-	// trzy najczesciej wystepujace wyraz
-
 	cout << "\nTrzy najczesciej wystepujace wyrazy" << endl;
 
 	int i=0;
 	for(it=slownik.begin(); it!=slownik.end() && i<3; it++, i++)
 		cout << i+1 << " : " << (*it).second << " : " << (*it).first << endl;
 
-	// wypisz najdłuższy wyraz ze słownika. Wykorzystaj w tym celu algorytm max_element oraz 
-	// obiekt funkcyjny służący do porównania dwóch wyrazów ze względu na długość
+	// wypisz najdluzszy wyraz ze slowanika. Wykorzystaj w tym celu algorytm max_element oraz 
+	// obiekt funkcyjny sluzacy do porownania dwoch wyrazow ze wzgledu na dlugosc
 
 	auto iter = max_element(slownik.begin(), slownik.end(), PorownywatorDlugosci());
 	cout << "\nNajdluzszy wyraz to: " << (*iter).first << ", liczba znakow: " << (*iter).first.Dlugosc() << ", liczba wystapien: " << (*iter).second <<  endl;
 
-	// wypisz w osobnych grupach wyrazy o liczbie znaków n=1, 2, 3, … aż do najdłuższego wyrazu. 
-	// Wykorzystaj w tym celu funkcję find_if oraz funkcję lambda sprawdzającą warunek, czy wyraz posiada długość n
+	// wypisz w osobnych grupach wyrazy o liczbie znakow n=1, 2, 3, 4, ... az do najdluzszego wyrazu. 
+	// Wykorzystaj w tym celu funkcje find_if oraz funkcje lambda sprawdzajaca warunek, czy wyraz posiada dlugosc n
 
 	int max_dl = (*iter).first.Dlugosc() ;
 
